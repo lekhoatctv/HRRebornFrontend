@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hang Rong Game</title>
+</head>
+
+<body>
+
+    <h1>🎮 GAME</h1>
+    <p id="info"></p>
+
+    <script>
+        const token = localStorage.getItem("accessToken");
+
+        if (!token) {
+            window.location.href = "/";
+        }
+
+        fetch("http://localhost:8080/player/info", {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        })
+            .then(res => res.text())
+            .then(text => {
+                document.getElementById("info").innerText = text;
+            });
+    </script>
+
+</body>
+
+</html>
