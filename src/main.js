@@ -1,3 +1,11 @@
+
+const existingToken = localStorage.getItem("accessToken");
+
+if (existingToken) {
+  window.location.href = "/game.html";
+}
+
+
 const API_URL = "http://localhost:8080";
 
 const usernameEl = document.getElementById("username");
